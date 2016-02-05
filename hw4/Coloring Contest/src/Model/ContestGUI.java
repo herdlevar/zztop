@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -13,16 +14,21 @@ public class ContestGUI extends JFrame implements Observer, PropertyChangeListen
 	
 	// Constants
 	
+	/** Frame size when removed from full screen. */
 	private static final Dimension FRAME_SIZE = new Dimension(800, 600);
 	
 	// Fields
 	
+	/** Welcome screen panel. */
+	private final WelcomePanel myWelcomePanel;
+	
 	/**
 	 * Constructs the coloring contest GUI
 	 */
-	public ContestGUI() {
+	public ContestGUI(final WelcomePanel theWelcomePanel) {
 		// empty constructor
 		super("Coloring Contest");
+		myWelcomePanel = theWelcomePanel;
 	}
 	
 	/**
@@ -33,9 +39,10 @@ public class ContestGUI extends JFrame implements Observer, PropertyChangeListen
 		setSize(FRAME_SIZE);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		add(myWelcomePanel, BorderLayout.NORTH);
+		setVisible(true);
 		JOptionPane.showMessageDialog(this, "Hello there!\n\n"
 				+ "Jared Herdlevar, Nick Dantche, Jeff Lytle, Jake Nasanov, and Zach Martinez");
-		setVisible(true);
 	}
 
 	@Override

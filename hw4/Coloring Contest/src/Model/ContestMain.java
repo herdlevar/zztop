@@ -11,7 +11,7 @@ public class ContestMain {
 		EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-            	myGUI = new ContestGUI();
+            	myGUI = new ContestGUI(new WelcomePanel());
             	setup();
             }
 		});
