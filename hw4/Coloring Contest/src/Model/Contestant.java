@@ -21,7 +21,7 @@ public class Contestant {
 	
 	private int myAge;
 	
-	private List<File> myEntries;
+	private List<Entry> myEntries;
 
 	public Contestant(String theName, String theAddress, String theCity, String theState, String theZip,
 			String theEmail, int theAge) {
@@ -32,7 +32,7 @@ public class Contestant {
 		myZip = theZip;
 		myEmail = theEmail;
 		myAge = theAge;
-		myEntries = new ArrayList<File>();
+		myEntries = new ArrayList<Entry>();
 	}
 	
 	public String getMyName() {
@@ -91,11 +91,11 @@ public class Contestant {
 		myAge = theAge;
 	}
 
-	public List<File> getMyEntries() {
+	public List<Entry> getMyEntries() {
 		return myEntries;
 	}
 	
-	public void addEntry(File theEntry) {
+	public void addEntry(Entry theEntry) {
 		myEntries.add(theEntry);
 	}
 	
