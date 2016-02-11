@@ -10,8 +10,11 @@ public class Entry {
 	
 	private List<Integer> myScores;
 	
+	private List<List> myJudged;
+	
 	public Entry() {
 		myEntries = new ArrayList<File>();
 		myScores = new ArrayList<Integer>();
+		myJudged = new ArrayList<List>();
 	}
 }
