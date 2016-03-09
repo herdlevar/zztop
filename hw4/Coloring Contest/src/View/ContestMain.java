@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.EventQueue;
+import java.io.IOException;
 
 public class ContestMain {
 	
@@ -11,7 +12,12 @@ public class ContestMain {
 		EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-            	myGUI = new ContestGUI(new WelcomePanel());
+				try {
+					myGUI = new ContestGUI();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             	setup();
             }
 		});

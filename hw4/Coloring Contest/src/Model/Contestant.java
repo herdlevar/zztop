@@ -7,7 +7,9 @@ import java.util.Objects;
 
 public class Contestant {
 	
-	private String myName;
+	private String myFirstName;
+	
+	private String myLastName;
 
 	private String myAddress;
 	
@@ -19,28 +21,37 @@ public class Contestant {
 	
 	private String myEmail;
 	
-	private int myAge;
+	private Integer myAge;
 	
-	private List<Entry> myEntries;
+	private File myEntry;
 
-	public Contestant(String theName, String theAddress, String theCity, String theState, String theZip,
-			String theEmail, int theAge) {
-		myName = theName;
+	public Contestant(String theFirstName, String theLastName, String theAddress, String theCity, String theState, String theZip,
+			String theEmail, Integer theAge, File theEntry) {
+		myFirstName = theFirstName;
+		myLastName = theLastName;
 		myAddress = theAddress;
 		myCity = theCity;
 		myState = theState;
 		myZip = theZip;
 		myEmail = theEmail;
 		myAge = theAge;
-		myEntries = new ArrayList<Entry>();
+		myEntry = theEntry;
 	}
 	
-	public String getMyName() {
-		return myName;
+	public String getMyFirstName() {
+		return myFirstName;
 	}
 
-	public void setMyName(String myName) {
-		this.myName = myName;
+	public void setMyName(String theFirstName) {
+		this.myFirstName = theFirstName;
+	}
+	
+	public String getMyLastName() {
+		return myLastName;
+	}
+
+	public void setMyLastName(String theLastName) {
+		this.myLastName = theLastName;
 	}
 
 	public String getMyAddress() {
@@ -83,25 +94,15 @@ public class Contestant {
 		this.myEmail = myEmail;
 	}
 	
-	public int getMyAge() {
+	public Integer getMyAge() {
 		return myAge;
 	}
 	
-	public void setMyAge(int theAge) {
+	public void setMyAge(Integer theAge) {
 		myAge = theAge;
 	}
-
-	public List<Entry> getMyEntries() {
-		return myEntries;
-	}
 	
-	public void addEntry(Entry theEntry) {
-		myEntries.add(theEntry);
-	}
-	
-	@Override
-	public int hashCode() {
-		Object[] fields = {myName, myAddress, myCity, myState, myEmail, myAge};
-		return Objects.hashCode(fields);
+	public File getMyEntry() {
+		return myEntry;
 	}
 }
