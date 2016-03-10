@@ -21,12 +21,22 @@ public class Contestant {
 	
 	private String myEmail;
 	
-	private Integer myAge;
+	private String myAge;
 	
-	private File myEntry;
+	private String myEntry;
+
+	private String myScoreA;
+	
+	private String myScoreB;
+	
+	private String myScoreC;
+	
+	private String myAverageScore;
+	
+	private String[] myValues;
 
 	public Contestant(String theFirstName, String theLastName, String theAddress, String theCity, String theState, String theZip,
-			String theEmail, Integer theAge, File theEntry) {
+			String theEmail, String theAge, String theEntry) {
 		myFirstName = theFirstName;
 		myLastName = theLastName;
 		myAddress = theAddress;
@@ -36,6 +46,93 @@ public class Contestant {
 		myEmail = theEmail;
 		myAge = theAge;
 		myEntry = theEntry;
+		myScoreA = null;
+		myScoreB = null;
+		myScoreC = null;
+		myAverageScore = null;
+		myValues = null;
+	}
+	
+	public Contestant() {
+		myScoreA = null;
+		myScoreB = null;
+		myScoreC = null;
+		myAverageScore = null;
+		myFirstName = null;
+		myLastName = null;
+		myAddress = null;
+		myCity = null;
+		myState = null;
+		myZip = null;
+		myEmail = null;
+		myAge = null;
+		myEntry = null;
+		myValues = null;
+	}
+	
+	public void addValues(String[] theValues) {
+		myFirstName = theValues[0];
+		myLastName = theValues[1];
+		myAddress = theValues[2];
+		myCity = theValues[3];
+		myState = theValues[4];
+		myZip = theValues[5];
+		myEmail = theValues[6];
+		myAge = theValues[7];
+		myEntry = theValues[8];
+		myScoreA = theValues[9];
+		myScoreB = theValues[10];
+		myScoreC = theValues[11];
+		myAverageScore = theValues[12];
+		myValues = theValues;
+	}
+	
+	public String getMyScoreA() {
+		return myScoreA;
+	}
+
+	public void setMyScoreA(String myScoreA) {
+		this.myScoreA = myScoreA;
+	}
+
+	public String getMyScoreB() {
+		return myScoreB;
+	}
+
+	public void setMyScoreB(String myScoreB) {
+		this.myScoreB = myScoreB;
+	}
+
+	public String getMyScoreC() {
+		return myScoreC;
+	}
+
+	public void setMyScoreC(String myScoreC) {
+		this.myScoreC = myScoreC;
+	}
+
+	public String getMyAverageScore() {
+		return myAverageScore;
+	}
+
+	public void setMyAverageScore(String myAverageScore) {
+		this.myAverageScore = myAverageScore;
+	}
+
+	public void setMyFirstName(String myFirstName) {
+		this.myFirstName = myFirstName;
+	}
+
+	public void setMyEntry(String myEntry) {
+		this.myEntry = myEntry;
+	}
+
+	public void setMyValues(String[] myValues) {
+		this.myValues = myValues;
+	}
+	
+	public String[] getMyValues() {
+		return myValues;
 	}
 	
 	public String getMyFirstName() {
@@ -94,15 +191,15 @@ public class Contestant {
 		this.myEmail = myEmail;
 	}
 	
-	public Integer getMyAge() {
+	public String getMyAge() {
 		return myAge;
 	}
 	
-	public void setMyAge(Integer theAge) {
+	public void setMyAge(String theAge) {
 		myAge = theAge;
 	}
 	
-	public File getMyEntry() {
+	public String getMyEntry() {
 		return myEntry;
 	}
 }

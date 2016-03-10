@@ -3,16 +3,20 @@ package View;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class WelcomePanel extends JPanel {
+	
+	private JFrame myJFrame;
 
 	/**
 	 * Constructs the welcome screen panel
 	 */
-	public WelcomePanel() {
+	public WelcomePanel(JFrame theJFrame) {
 		super();
+		myJFrame = theJFrame;
 		setBackground(Color.white);
 		add(WelcomeBanner());
 	}
