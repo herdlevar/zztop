@@ -79,6 +79,7 @@ public class BottomPanel extends JPanel {
             	EnterLoginPanel panel = null;
 				try {
 					panel = new EnterLoginPanel(myJFrame);
+					myJFrame.setMyCenterPanel(panel);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

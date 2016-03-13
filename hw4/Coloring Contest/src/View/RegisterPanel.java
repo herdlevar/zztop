@@ -81,6 +81,7 @@ public class RegisterPanel extends JPanel {
 		add(myAgeField, grid);
 		add(new JLabel("Entry", SwingConstants.RIGHT), grid);
 		myEntryField = new JTextField();
+		myEntryField.setEditable(false);
 		add(myEntryField, grid);
 		myBrowseButton = new JButton("Browse");
 		browseListener();
@@ -121,7 +122,9 @@ public class RegisterPanel extends JPanel {
 					myJFrame.getMyContestants().add(contestant);
 					myJFrame.remove(RegisterPanel.this);
 					try {
-						myJFrame.add(new EnterLoginPanel(RegisterPanel.this.myJFrame));
+						EnterLoginPanel panel = new EnterLoginPanel(RegisterPanel.this.myJFrame);
+						myJFrame.setMyCenterPanel(panel);
+						myJFrame.add(panel);
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

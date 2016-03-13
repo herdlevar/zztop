@@ -79,12 +79,20 @@ public class Contestant {
 		myZip = theValues[5];
 		myEmail = theValues[6];
 		myAge = theValues[7];
-		myEntry = theValues[8];
+		StringBuilder string = new StringBuilder(theValues[8]);
+		for (int i = 0; i < string.length(); i++) {
+			if (string.charAt(i) == '\\') {
+				string.delete(i, i+1);
+				string.insert(i, '@');
+			}
+		}
+		myEntry = string.toString();
 		myScoreA = theValues[9];
 		myScoreB = theValues[10];
 		myScoreC = theValues[11];
 		myAverageScore = theValues[12];
 		myValues = theValues;
+		myValues[8] = myEntry;
 	}
 	
 	public String getMyScoreA() {
@@ -93,6 +101,7 @@ public class Contestant {
 
 	public void setMyScoreA(String myScoreA) {
 		this.myScoreA = myScoreA;
+		setAverage();
 	}
 
 	public String getMyScoreB() {
@@ -101,6 +110,7 @@ public class Contestant {
 
 	public void setMyScoreB(String myScoreB) {
 		this.myScoreB = myScoreB;
+		setAverage();
 	}
 
 	public String getMyScoreC() {
@@ -109,6 +119,7 @@ public class Contestant {
 
 	public void setMyScoreC(String myScoreC) {
 		this.myScoreC = myScoreC;
+		setAverage();
 	}
 
 	public String getMyAverageScore() {
@@ -200,6 +211,21 @@ public class Contestant {
 	}
 	
 	public String getMyEntry() {
-		return myEntry;
+		StringBuilder string = new StringBuilder(myEntry);
+		for (int i = 0; i < string.length(); i++) {
+			if (string.charAt(i) == '@') {
+				string.delete(i, i+1);
+				string.insert(i,'\\');
+			}
+		}
+		return string.toString();
+	}
+	
+	private void setAverage() {
+		float voted = 0;
+		if (Integer.parseInt(myScoreA) > 0) voted++;
+		if (Integer.parseInt(myScoreB) > 0) voted++;
+		if (Integer.parseInt(myScoreC) > 0) voted++;
+		myAverageScore = "" + (Integer.parseInt(myScoreA)+Integer.parseInt(myScoreB)+Integer.parseInt(myScoreC))/voted;
 	}
 }

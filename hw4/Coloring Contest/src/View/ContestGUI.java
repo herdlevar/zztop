@@ -119,7 +119,12 @@ public class ContestGUI extends JFrame implements Observer, PropertyChangeListen
 	public void findWinners() {
 		int age;
 		for (Contestant contestant : myContestants) {
-			age = Integer.parseInt(contestant.getMyAge());
+			try {
+
+				age = Integer.parseInt(contestant.getMyAge());
+			} catch (Exception e) {
+				continue;
+			}
 			if (age < 6) {
 				if (winner5 == null) {
 					winner5 = contestant;
