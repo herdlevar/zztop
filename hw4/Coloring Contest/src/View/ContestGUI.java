@@ -34,35 +34,43 @@ public class ContestGUI extends JFrame implements Observer, PropertyChangeListen
 	
 	// Fields
 	
+	/** The winner of the 0-5 age bracket. */
 	private Contestant winner5;
 	
+	/** The winner of the 6-10 bracket. */
 	private Contestant winner10;
 	
+	/** The winner of the 11-15 bracket. */
 	private Contestant winner15;
 	
+	/** The winner of the 16-18 bracket. */
 	private Contestant winner18;
 	
+	/** The winner of the 19+ bracket. */
 	private Contestant winner19;
 	
 	/** Welcome screen panel. */
 	private final WelcomePanel myWelcomePanel;
 	
-
 	/** Panel to enter, download, or judge login. */
 	private EnterLoginPanel myEnterLoginPanel;
 	
 	/** Panel to view privacy policy and contest rules. */
 	private final BottomPanel myBottomPanel;
 	
+	/** The center panel of the frame. */
 	private JPanel myCenterPanel;	
 	
 	/** Home menu item. */
 	private static JButton myHomeButton;
 	
+	/** The file path of the database of contestants. */
 	private String myDatabase;
 	
+	/** The csv file writer to write to the database. */
 	private CsvFileWriter myCsvWriter;
 	
+	/** The list of contestants. */
 	private List<Contestant> myContestants;
 	
 	/**
@@ -116,6 +124,9 @@ public class ContestGUI extends JFrame implements Observer, PropertyChangeListen
 		
 	}
 	
+	/**
+	 * This method finds the winners of each age bracket.
+	 */
 	public void findWinners() {
 		int age;
 		for (Contestant contestant : myContestants) {
@@ -128,31 +139,31 @@ public class ContestGUI extends JFrame implements Observer, PropertyChangeListen
 			if (age < 6) {
 				if (winner5 == null) {
 					winner5 = contestant;
-				} else if (Integer.parseInt(winner5.getMyAge()) < Integer.parseInt(contestant.getMyAverageScore())) {
+				} else if (Float.parseFloat(winner5.getMyAverageScore()) < Float.parseFloat(contestant.getMyAverageScore())) {
 					winner5 = contestant;
 				}
 			} else if (age < 11) {
 				if (winner10 == null) {
 					winner10 = contestant;
-				} else if (Integer.parseInt(winner10.getMyAge()) < Integer.parseInt(contestant.getMyAverageScore())) {
+				} else if (Float.parseFloat(winner10.getMyAverageScore()) < Float.parseFloat(contestant.getMyAverageScore())) {
 					winner10 = contestant;
 				}
 			} else if (age < 16) {
 				if (winner15 == null) {
 					winner15 = contestant;
-				} else if (Integer.parseInt(winner15.getMyAge()) < Integer.parseInt(contestant.getMyAverageScore())) {
+				} else if (Float.parseFloat(winner15.getMyAverageScore()) < Float.parseFloat(contestant.getMyAverageScore())) {
 					winner15 = contestant;
 				}
 			} else if (age < 19) {
 				if (winner18 == null) {
 					winner18 = contestant;
-				} else if (Integer.parseInt(winner18.getMyAge()) < Integer.parseInt(contestant.getMyAverageScore())) {
+				} else if (Float.parseFloat(winner18.getMyAverageScore()) < Float.parseFloat(contestant.getMyAverageScore())) {
 					winner18 = contestant;
 				}
 			} else if (age > 18) {
 				if (winner19 == null) {
 					winner19 = contestant;
-				} else if (Integer.parseInt(winner19.getMyAge()) < Integer.parseInt(contestant.getMyAverageScore())) {
+				} else if (Float.parseFloat(winner19.getMyAverageScore()) < Float.parseFloat(contestant.getMyAverageScore())) {
 					winner19 = contestant;
 				}
 			}
@@ -165,35 +176,107 @@ public class ContestGUI extends JFrame implements Observer, PropertyChangeListen
 		
 	}
 	
+	/**
+	 * Gets the csv writer.
+	 * @return The csv file writer
+	 */
 	public CsvFileWriter getMyCsvWriter() {
 		return myCsvWriter;
 	}
 	
+	/**
+	 * Gets the list of contestants.
+	 * @return The list of contestants. 
+	 */
 	public List<Contestant> getMyContestants() {
 		return myContestants;
 	}
 	
+	/**
+	 * Gets the size of the jframe.
+	 * @return The dimensions of the JFrame
+	 */
 	public static Dimension getFrameSize() {
 		return FRAME_SIZE;
 	}
 
+	/**
+	 * Gets the welcome panel.
+	 * @return The WelcomePanel
+	 */
 	public WelcomePanel getMyWelcomePanel() {
 		return myWelcomePanel;
 	}
 
+	/**
+	 * Gets the enter login panel
+	 * @return The EnterLoginPanel
+	 */
 	public EnterLoginPanel getMyEnterLoginPanel() {
 		return myEnterLoginPanel;
 	}
 
+	/**
+	 * Gets the bottom panel
+	 * @return The BottomPanel
+	 */
 	public BottomPanel getMyBottomPanel() {
 		return myBottomPanel;
 	}
 
+	/**
+	 * Gets the panel in the center of the frame.
+	 * @return The center panel.
+	 */
 	public JPanel getMyCenterPanel() {
 		return myCenterPanel;
 	}
 	
+	/**
+	 * Sets the center panel.
+	 * @param theCenterPanel
+	 */
 	public void setMyCenterPanel(JPanel theCenterPanel){
 		myCenterPanel = theCenterPanel;
+	}
+	
+	/**
+	 * Gets the winner of the 0-5 bracket.
+	 * @return The 0-5 winner
+	 */
+	public Contestant getWinner5() {
+		return winner5;
+	}
+	
+	/**
+	 * Gets the winner of the 6-10 bracket.
+	 * @return The 6-10 winner
+	 */
+	public Contestant getWinner10() {
+		return winner10;
+	}
+	
+	/**
+	 * Gets the winner of the 11-15 bracket.
+	 * @return The 11-15 winner
+	 */
+	public Contestant getWinner15() {
+		return winner15;
+	}
+	
+	/**
+	 * Gets the winner of the 16-18 bracket.
+	 * @return The 16-18 winner.
+	 */
+	public Contestant getWinner18() {
+		return winner5;
+	}
+	
+	/** 
+	 * Gets the winner of the 19+ bracket.
+	 * @return The 19+ winner
+	 */
+	public Contestant getWinner19() {
+		return winner19;
 	}
 }

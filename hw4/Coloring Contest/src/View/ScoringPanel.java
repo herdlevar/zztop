@@ -2,8 +2,6 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,33 +18,48 @@ import javax.swing.JPanel;
 import Model.Contestant;
 import Model.Judge;
 
+/**
+ * This panel allows the judges to score the entries.
+ *
+ */
 public class ScoringPanel extends JPanel {
 	
+	/** The JFrame of the program. */
 	private ContestGUI myJFrame;
 	
+	/** The judge who is logged in. */
 	private Judge myJudge;
 	
-	private JPanel myLogoutPanel;
-	
+	/** The panel where judges score. */
 	private JPanel myScorePanel;
 	
+	/** The image to score. */
 	private JLabel myImage;
 	
+	/** The button to submit scores. */
 	private JButton mySubmitButton;
 	
+	/** The ComboBox with allowable scores. */
 	private JComboBox myComboBox;
 	
+	/** The list of contestants. */
 	private List<Contestant> myContestants;
 	
+	/** Index for iterating through contestants. */
 	private int myIndex;
 	
+	/** Label for instructions. */
 	private JLabel myInstructions;
 	
+	/**
+	 * Creates a new scoring panel.
+	 * @param theJFrame
+	 * @param theJudge
+	 */
 	public ScoringPanel(ContestGUI theJFrame, Judge theJudge) {
 		super();
 		myJFrame = theJFrame;
 		myJudge = theJudge;
-		myLogoutPanel = new JPanel();
 		myScorePanel = new JPanel();
 		myImage = new JLabel();
 		myContestants = theJFrame.getMyContestants();
@@ -58,12 +71,13 @@ public class ScoringPanel extends JPanel {
 		setup();
 	}
 	
+	/**
+	 * Sets up the scoring panel.
+	 */
 	private void setup() {
 		this.setBackground(Color.WHITE);
-		myLogoutPanel.setBackground(Color.WHITE);
 		myScorePanel.setBackground(Color.WHITE);
 		this.add(myScorePanel, BorderLayout.CENTER);
-		this.add(myLogoutPanel, BorderLayout.CENTER);
 		myScorePanel.setLayout(new BoxLayout(myScorePanel, BoxLayout.PAGE_AXIS));
 		//setImage();
 		myScorePanel.add(myInstructions);
@@ -74,6 +88,7 @@ public class ScoringPanel extends JPanel {
 		addListener();
 	}
 	
+	// Checks to see if the logged in judge already voted,
 	private void voted() {
 		if (myIndex >= myContestants.size()) return;
 		for (Contestant cont : myContestants) {
@@ -99,6 +114,7 @@ public class ScoringPanel extends JPanel {
 		}
 	}
 	
+	// Adds listener to the submit button.
 	private void addListener() {
 		mySubmitButton.addActionListener(new ActionListener() {
 
@@ -141,11 +157,14 @@ public class ScoringPanel extends JPanel {
 		});
 	}
 	
+	// Sets the image to be scored.
 	private void setImage() {
 		voted();
 		if (myContestants.isEmpty() || myIndex >= myContestants.size()) {
 			myImage = new JLabel("No more entries");
 			myScorePanel.add(myImage);
+			myJFrame.findWinners();
+			showWinners();
 			mySubmitButton.setEnabled(false);;
 			myScorePanel.validate();
 			myScorePanel.repaint();
@@ -156,6 +175,57 @@ public class ScoringPanel extends JPanel {
 		myImage.setSize(800, 600);
 		myJFrame.validate();
 		myJFrame.repaint();
+	}
+	
+	// Displays winners after going though all the contestants.
+	private void showWinners() {
+		JLabel header = new JLabel("Current Winners");
+		myScorePanel.add(header);
+		JLabel five = new JLabel("Ages 0-5");
+		JLabel fiveWinner;
+		if (myJFrame.getWinner5() != null) {;
+			fiveWinner = new JLabel("Name: " + myJFrame.getWinner5().getMyFirstName() + " " + myJFrame.getWinner5().getMyLastName() + " Email: " + myJFrame.getWinner5().getMyEmail());
+		} else {
+			fiveWinner = new JLabel("No entry");
+		}
+		myScorePanel.add(five);
+		myScorePanel.add(fiveWinner);
+		JLabel ten = new JLabel("Ages 6-10");
+		JLabel tenWinner;
+		if (myJFrame.getWinner10() != null) {
+			tenWinner = new JLabel("Name: " + myJFrame.getWinner10().getMyFirstName() + " " + myJFrame.getWinner10().getMyLastName() + " Email: " + myJFrame.getWinner10().getMyEmail());
+		} else {
+			tenWinner = new JLabel("No entry");
+		}
+		myScorePanel.add(ten);
+		myScorePanel.add(tenWinner);
+		JLabel fifteen = new JLabel("Ages 11-15");
+		JLabel fifteenWinner;
+		if (myJFrame.getWinner15() != null) {
+			fifteenWinner = new JLabel("Name: " + myJFrame.getWinner15().getMyFirstName() + " " + myJFrame.getWinner15().getMyLastName() + " Email: " + myJFrame.getWinner15().getMyEmail());
+		} else {
+			fifteenWinner = new JLabel("No entry");
+		}
+		myScorePanel.add(fifteen);
+		myScorePanel.add(fifteenWinner);
+		JLabel eightteen = new JLabel("Ages 16-18");
+		JLabel eightteenWinner;
+		if (myJFrame.getWinner18() != null) {
+			eightteenWinner = new JLabel("Name: " + myJFrame.getWinner18().getMyFirstName() + " " + myJFrame.getWinner18().getMyLastName() + " Email: " + myJFrame.getWinner18().getMyEmail());
+		} else {
+			eightteenWinner = new JLabel("No entry");
+		}
+		myScorePanel.add(eightteen);
+		myScorePanel.add(eightteenWinner);
+		JLabel nineteen = new JLabel("Ages 19+");
+		JLabel nineteenWinner;
+		if (myJFrame.getWinner19() != null) {
+			nineteenWinner = new JLabel("Name: " + myJFrame.getWinner19().getMyFirstName() + " " + myJFrame.getWinner19().getMyLastName() + " Email: " + myJFrame.getWinner19().getMyEmail());
+		} else {
+			nineteenWinner = new JLabel("No entry");
+		}		
+		myScorePanel.add(nineteen);
+		myScorePanel.add(nineteenWinner);
 	}
 
 }

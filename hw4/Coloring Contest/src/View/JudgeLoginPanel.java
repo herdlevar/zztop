@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -17,16 +16,28 @@ import javax.swing.SwingConstants;
 
 import Model.Judge;
 
+/**
+ * The judges login panel
+ *
+ */
 public class JudgeLoginPanel extends JPanel {
 
+	/** The frame this panel sits in. */
 	private ContestGUI myJFrame;
 	
+	/** Test field for judge user name. */
 	private JTextField myJudgeField;
 	
+	/** Test field for password. */
 	private JPasswordField myPasswordField;
 	
+	/** Button to login. */
 	private JButton myLoginButton;
 	
+	/** 
+	 * Creates a new panel.
+	 * @param theJFrame
+	 */
 	public JudgeLoginPanel(ContestGUI theJFrame) {
 		super();
 		myJFrame = theJFrame;
@@ -36,6 +47,7 @@ public class JudgeLoginPanel extends JPanel {
 		setup();
 	}
 	
+	// Sets up the panel.
 	private void setup() {
 		GridLayout grid = new GridLayout(3,2);
 		this.setBackground(Color.WHITE);
@@ -49,6 +61,7 @@ public class JudgeLoginPanel extends JPanel {
 		add(myLoginButton, grid);
 	}
 	
+	// Adds listener to login button.
 	private void addListener() {
 		myLoginButton.addActionListener(new ActionListener() {
 
@@ -65,6 +78,7 @@ public class JudgeLoginPanel extends JPanel {
 						myJFrame.setMyCenterPanel(score);
 						myJFrame.validate();
 						myJFrame.repaint();
+						myJFrame.getMyBottomPanel().getMyHomeButton().setText("Logout");
 					} else {
 						JOptionPane.showMessageDialog(null, "Incorrect Login");
 					}

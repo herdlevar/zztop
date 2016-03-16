@@ -7,8 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * Creates a banner panel for the GUI.
+ *
+ */
 public class WelcomePanel extends JPanel {
 	
+	/** THe jframe this panel is in. */
 	private JFrame myJFrame;
 
 	/**
@@ -21,6 +26,7 @@ public class WelcomePanel extends JPanel {
 		add(WelcomeBanner());
 	}
 	
+	// Adds header to GUI.
 	private JLabel WelcomeBanner() {
 		JLabel welcomeLabel = new JLabel("Library Coloring Contest");
 		welcomeLabel.setFont(new Font("Stencil", 1, 20));

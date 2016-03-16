@@ -14,36 +14,55 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Model.Contestant;
 
+/**
+ * A panel to enter the contest.
+ *
+ */
 public class RegisterPanel extends JPanel {
 	
+	/** The frame this panel sits in. */
 	private ContestGUI myJFrame;
 
+	/** Test field for first name. */
 	private JTextField myFirstNameField;
 	
+	/** Field for last name. */
 	private JTextField myLastNameField;
 	
+	/** Field for address. */
 	private JTextField myAddressField;
 	
+	/** Field for the city. */
 	private JTextField myCityField;
 	
+	/** Field for the state. */
 	private JTextField myStateField;
 	
+	/** Field for the zip. */
 	private JTextField myZipField;
 	
+	/** Field for the email. */
 	private JTextField myEmailField;
 	
+	/** Field for age. */
 	private JTextField myAgeField;
 	
+	/** Field for the file. */
 	private JTextField myEntryField;
 	
+	/** Button to browse files. */
 	private JButton myBrowseButton;
 	
+	/** Button to submit. */
 	private JButton myEnterButton;
 
+	/**
+	 * Creates new panel.
+	 * @param theJFrame
+	 */
 	public RegisterPanel(ContestGUI theJFrame) {
 		super();
 		myJFrame = theJFrame;
@@ -52,6 +71,7 @@ public class RegisterPanel extends JPanel {
 		this.repaint();
 	}
 	
+	// sets up the panel.
 	private void setup() {
 		GridLayout grid = new GridLayout(16, 2);
 		this.setLayout(grid);
@@ -91,6 +111,7 @@ public class RegisterPanel extends JPanel {
 		enterListener();
 	}
 	
+	// Adds listener to the browse button.
 	private void browseListener() {
 		myBrowseButton.addActionListener(new ActionListener() {
 			@Override
@@ -107,6 +128,7 @@ public class RegisterPanel extends JPanel {
 		});
 	}
 	
+	// Adds listener to the enter button.
 	private void enterListener() {
 		myEnterButton.addActionListener(new ActionListener() {
 
@@ -144,66 +166,130 @@ public class RegisterPanel extends JPanel {
 		});
 	}
 	
+	/**
+	 * Gets the JFrame.
+	 * @return The JFrame
+	 */
 	public JFrame getMyJFrame() {
 		return myJFrame;
 	}
 
+	/**
+	 * Sets the jframe.
+	 * @param myJFrame
+	 */
 	public void setMyJFrame(ContestGUI myJFrame) {
 		this.myJFrame = myJFrame;
 	}
 
+	/**
+	 * Gets the first name.
+	 * @return First name
+	 */
 	public JTextField getMyFirstNameField() {
 		return myFirstNameField;
 	}
 
+	/**
+	 * Sets the first name.
+	 * @param myFirstNameField
+	 */
 	public void setMyFirstNameField(JTextField myFirstNameField) {
 		this.myFirstNameField = myFirstNameField;
 	}
 
+	/**
+	 * Gets last name.
+	 * @return Last name
+	 */
 	public JTextField getMyLastNameField() {
 		return myLastNameField;
 	}
 
+	/**
+	 * Sets the last name.
+	 * @param myLastNameField
+	 */
 	public void setMyLastNameField(JTextField myLastNameField) {
 		this.myLastNameField = myLastNameField;
 	}
 
+	/**
+	 * Gets adress
+	 * @return Address
+	 */
 	public JTextField getMyAddressField() {
 		return myAddressField;
 	}
 
+	/**
+	 * Sets the address.
+	 * @param myAddressField
+	 */
 	public void setMyAddressField(JTextField myAddressField) {
 		this.myAddressField = myAddressField;
 	}
 
+	/**
+	 * Gets the city
+	 * @return The city
+	 */
 	public JTextField getMyCityField() {
 		return myCityField;
 	}
 
+	/**
+	 * Sets the city.
+	 * @param myCityField
+	 */
 	public void setMyCityField(JTextField myCityField) {
 		this.myCityField = myCityField;
 	}
 
+	/**
+	 * Gets the state.
+	 * @return The state
+	 */
 	public JTextField getMyStateField() {
 		return myStateField;
 	}
 
+	/**
+	 * Sets the state.
+	 * @param myStateField
+	 */
 	public void setMyStateField(JTextField myStateField) {
 		this.myStateField = myStateField;
 	}
 
+	/**
+	 * Gets the zip.
+	 * @return The zip
+	 */
 	public JTextField getMyZipField() {
 		return myZipField;
 	}
 
+	/**
+	 * Sets the zip.
+	 * @param myZipField
+	 */
 	public void setMyZipField(JTextField myZipField) {
 		this.myZipField = myZipField;
 	}
 
+	/**
+	 * Gets the entry path.
+	 * @return
+	 */
 	public JTextField getMyEntryField() {
 		return myEntryField;
 	}
 
+	/**
+	 * Sets the entry path.
+	 * @param myEntryField
+	 */
 	public void setMyEntryField(JTextField myEntryField) {
 		this.myEntryField = myEntryField;
 	}

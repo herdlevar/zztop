@@ -8,14 +8,25 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * Bottom panel for the gui display.
+ *
+ */
 public class BottomPanel extends JPanel {
 	
+	/** The JFrame this panel is in. */
 	private ContestGUI myJFrame;
+	
+	/** The button to return to the home screen. */
+	private JButton myHomeButton;
 
+	/** 
+	 * Creates a new bottom panel.
+	 * @param theJFrame
+	 */
 	public BottomPanel(ContestGUI theJFrame) {
 		super();
 		myJFrame = theJFrame;
@@ -23,9 +34,11 @@ public class BottomPanel extends JPanel {
 		add(RulesButton());
 		add(PrivacyButton());
 		add(JudgeLoginButton());
-		add(HomeButton());
+		myHomeButton = HomeButton();
+		add(myHomeButton);
 	}
 	
+	// Creates the rules button.
 	private JButton RulesButton() {
 		JButton button = new JButton("Contest Rules");
 		button.addActionListener(new ActionListener() {
@@ -40,6 +53,15 @@ public class BottomPanel extends JPanel {
 		return button;
 	}
 	
+	/**
+	 * Gets the home button.
+	 * @return The home button
+	 */
+	public JButton getMyHomeButton() {
+		return myHomeButton;
+	}
+	
+	// Creates the privacy button.
 	private JButton PrivacyButton() {
 		JButton button = new JButton("Privacy Policy");
 		button.addActionListener(new ActionListener() {
@@ -52,6 +74,7 @@ public class BottomPanel extends JPanel {
 		return button;		
 	}
 	
+	// Creates the button for judges to login.
 	private JButton JudgeLoginButton() {
 		JButton button = new JButton("Judge Login");
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -70,6 +93,7 @@ public class BottomPanel extends JPanel {
 		return button;
 	}
 	
+	// Creates the button to return home.
 	private JButton HomeButton() {
 		JButton button = new JButton("Home");
 		button.addActionListener(new ActionListener() {
@@ -78,8 +102,12 @@ public class BottomPanel extends JPanel {
 				myJFrame.remove(myJFrame.getMyCenterPanel());
             	EnterLoginPanel panel = null;
 				try {
+					if (myJFrame.getMyCenterPanel() instanceof ScoringPanel) {
+						BottomPanel.this.myHomeButton.setText("Home");
+					}
 					panel = new EnterLoginPanel(myJFrame);
 					myJFrame.setMyCenterPanel(panel);
+					
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

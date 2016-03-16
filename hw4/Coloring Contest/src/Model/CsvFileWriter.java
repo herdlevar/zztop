@@ -4,8 +4,6 @@ import View.ContestGUI;
 
 import com.opencsv.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,19 +13,14 @@ public class CsvFileWriter {
 	
 	/** Delimiter for CSV. */
 	private static final char COMMA_DELIMITER = ',';
-	
-	/** New line for CSV. */
-	private static final String NEW_LINE = "\n";
-	
+		
 	/** Header for CSV file. */
 	private static final String[] FILE_HEADER = {"firstname","lastname","address","city","state","zip","email","age","filepath", "judgeA", "judgeB", "judgeC", "average"};
-	
-	/** FileWriter to write CSV file. */
-	private FileWriter myFileWriter;
-	
+		
 	/** The file to write to. */
 	private String myFile;
 	
+	/** The JFrame for the program. */
 	private ContestGUI myJFrame;
 	
 	/** Constructor. 
@@ -38,6 +31,10 @@ public class CsvFileWriter {
 		if(exists) loadContestants();
 	}
 	
+	/** 
+	 * Loads the contestants from the database.
+	 * @throws IOException
+	 */
 	public void loadContestants() throws IOException {
 		CSVReader reader = new CSVReader(new FileReader(myFile));
 		reader.readNext();
@@ -85,6 +82,11 @@ public class CsvFileWriter {
 		
 	}
 	
+	/**
+	 * Removes the '@' from the file paths in the database and replaces them with a '\'
+	 * @param theString
+	 * @return The file path.
+	 */
 	public String addSlash(String theString) {
 		StringBuilder string = new StringBuilder(theString);
 		for (int i = 0; i < string.length(); i++) {

@@ -7,10 +7,19 @@ import java.net.URISyntaxException;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+/**
+ * Starts the program.
+ *
+ */
 public class ContestMain {
 	
+	/** The GUI of the program. */
 	private static ContestGUI myGUI;
 
+	/**
+	 * Runs the arguments. 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EventQueue.invokeLater(new Runnable() {
@@ -47,6 +56,7 @@ public class ContestMain {
 		});
 	}
 	
+	// Sets up the gui.
 	private static void setup() {
 		myGUI.start();
 	}
