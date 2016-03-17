@@ -2,7 +2,9 @@ package Model;
 
 /**
  * This class holds info for the contestants.
- *
+ * 
+ * @author Jeff Lytle
+ * @date March 17, 2016
  */
 public class Contestant {
 	

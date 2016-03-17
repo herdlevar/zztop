@@ -9,6 +9,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * This class writes and reads to the csv file.
+ * 
+ * @author Jared Herdlevar
+ * @date March 17, 2016
+ */
 public class CsvFileWriter {
 	
 	/** Delimiter for CSV. */

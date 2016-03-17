@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 
 /**
  * Creates a banner panel for the GUI.
+ * 
+ * @author Zach Martinez
+ * @date March 17, 2016
  *
  */
 public class WelcomePanel extends JPanel { 

@@ -6,6 +6,8 @@ import java.util.Map;
 /**
  * This class contains infor for the judges.
  *
+ * @author Jeff Lytle
+ * @date March 17, 2016
  */
 public class Judge {
 

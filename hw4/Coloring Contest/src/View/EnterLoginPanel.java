@@ -18,6 +18,8 @@ import javax.swing.JPanel;
 /**
  * This Panel is the landing page for the site. From here users can register and download pictures.
  *
+ * @author Zach Martinez, Jared Herdlevar, Jake Nasanov
+ * @date March 17, 2016
  */
 public class EnterLoginPanel extends JPanel {
 	

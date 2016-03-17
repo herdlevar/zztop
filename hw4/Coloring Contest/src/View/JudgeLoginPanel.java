@@ -17,7 +17,10 @@ import javax.swing.SwingConstants;
 import Model.Judge;
 
 /**
- * The judges login panel
+ * The judges login panel.
+ * 
+ * @author Zach Martinez, Nick Dantche, Jake Nasanov
+ * @date March 17, 2016
  *
  */
 public class JudgeLoginPanel extends JPanel {

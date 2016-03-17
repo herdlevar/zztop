@@ -20,6 +20,9 @@ import Model.Judge;
 
 /**
  * This panel allows the judges to score the entries.
+ * 
+ * @author Zach Martinez, Nick Dantche, Jake Nasanov
+ * @date March 17, 2016
  *
  */
 public class ScoringPanel extends JPanel {

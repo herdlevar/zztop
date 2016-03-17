@@ -9,6 +9,9 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 /**
  * Starts the program.
+ * 
+ * @author Jared Herdlevar
+ * @date March 17, 2016
  *
  */
 public class ContestMain {

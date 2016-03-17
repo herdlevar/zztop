@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 /**
  * Bottom panel for the gui display.
  *
+ * @author Zach Martinez, Jake Nasanov
+ * @date March 17, 2016
  */
 public class BottomPanel extends JPanel {
 	

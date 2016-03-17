@@ -19,6 +19,9 @@ import Model.Contestant;
 
 /**
  * A panel to enter the contest.
+ * 
+ * @author Nick Martinez, Jared Herdlevar, Jake Nasanov
+ * @date March 17, 2016
  *
  */
 public class RegisterPanel extends JPanel {

@@ -25,6 +25,12 @@ import javax.swing.JPanel;
 import Model.Contestant;
 import Model.CsvFileWriter;
 
+/**
+ * Is the JFrame for the gui.
+ * 
+ * @author Zach Martinez, Jared Herdlevar
+ * @date March 17, 2016
+ */
 public class ContestGUI extends JFrame implements Observer, PropertyChangeListener{
 	
 	// Constants
