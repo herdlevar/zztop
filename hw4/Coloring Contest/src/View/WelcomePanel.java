@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  */
 public class WelcomePanel extends JPanel {
 	
-	/** THe jframe this panel is in. */
+	/** The jframe this panel is in. */
 	private JFrame myJFrame;
 
 	/**
