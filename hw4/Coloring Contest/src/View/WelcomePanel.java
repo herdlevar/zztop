@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  * Creates a banner panel for the GUI.
  *
  */
-public class WelcomePanel extends JPanel {
+public class WelcomePanel extends JPanel { 
 	
 	/** The jframe this panel is in. */
 	private JFrame myJFrame;
